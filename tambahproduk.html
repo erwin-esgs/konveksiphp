@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  </head>
+  <script>
+function validasi() { 
+var textinput = document.getElementsByClassName("form-control");
+var count=0;
+	for (i = 0; i < textinput.length; i++) { 
+	if(textinput[i].value == ""){
+		count = count + 1;
+	}
+}
+if(count > 0){
+	alert("Fill all required field!"); 
+	return false;
+	}else{
+	return true;
+	}
+}
+
+  </script>
+  <body>
+	<div class="container" style="padding:2%;">
+	<center><h1>Tambah Produk</h1></center>
+<form action="tambahproduk.php" method="post" enctype="multipart/form-data" onsubmit="return validasi()">
+  <div class="form-group">
+	Pilih gambar (max 1mb):<br>
+    <input type="file" name="image" class="form-control" /><br>
+  <div class="form-group">
+    <label for="exampleInputText1">Nama Produk</label>
+    <input type="text" name="namaproduk" class="form-control" id="exampleInputText1" >
+  </div>
+  <div class="form-group">
+    <label for="exampleInputText2">Deskripsi</label>
+	<textarea class="form-control" name="deskripsi" id="exampleInputText2"  style="resize: none;"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputText3">Harga</label>
+    <input type="number" name="harga" class="form-control" id="exampleInputText3" >
+  </div>
+  <a href="index.php"><button  type="button" class="btn btn-primary">Back</button></a>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+	
+<br>
+	</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
