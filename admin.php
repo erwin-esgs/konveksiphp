@@ -65,15 +65,26 @@ require('koneksi.php');
 			?>
 			<a href = "detiltransaksi.php?idtransaksi=<?=$idtransaksi;?>" >
 			<li class="list-group-item d-flex justify-content-between align-items-center">
-				<div class="input-group"><input type="text" class="form-control-plaintext" value="<?=$idtransaksi;?>" readonly>
-						<input type="text" class="form-control-plaintext" value="Rp<?=$totalharga;?>" readonly>
+				<div class="input-group">
+						<input type="text" class="form-control-plaintext"  value="Rp<?=$totalharga;?>" readonly>
 			<?php
 				if($row["status"] == 2){
+					/*
+					echo'
+				<form action="uploadbukti.php?idtransaksi='.$idtransaksi.'" method="post" enctype="multipart/form-data" >
+					<div class="btn-group" role="group" aria-label="Third group">
+					Upload bukti transfer &nbsp
+						<input name="image" type="file"  />
+						<button type="submit" id="submit" class="btn btn-secondary">Submit</button>
+					</div>
+				</form> ';
+					*/
 					echo'
 							<div class="btn-group mr-2" role="group" style=" z-index: 1;">
 							<a class="btn btn-primary" href="verifikasibukti.php?idtransaksi='.$idtransaksi.'&totalharga='.$totalharga.'" >VerifikasiBukti</a>
 							</div>
 					';
+					
 				}
 				if($row["status"] == 3){
 					echo'
@@ -91,8 +102,10 @@ require('koneksi.php');
 				}
 				
 				?>
-				<span class="badge badge-pill badge-info"><?=$status;?></span>
+				
 				</div>
+				&nbsp
+				<span class="badge badge-pill badge-info"><?=$status;?></span>
 			</li>
 			</a>
 				<?php

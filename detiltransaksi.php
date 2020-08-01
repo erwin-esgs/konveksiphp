@@ -121,8 +121,10 @@
 	$con->close();
 	if ($result->num_rows > 0) {
 	    // output data of each row
+		$username1 = "";
 		while($row = mysqli_fetch_assoc($result)) {
 			$idproduk = $row["idproduk"];
+			$username = $row["username"];
 			$namaproduk = $row["namaproduk"];
 			$keterangan = $row["keterangan"];
 			$harga = $row["harga"];
@@ -131,7 +133,9 @@
 			$contoh = $row["contoh"];
 ?>
                         <tr>
+								<h5><?php if($username != $username1){echo " &nbsp Nama Pelanggan : ".$username; $username1=$username;} ?></h5>
                             <td class="product-col">
+
                                 <img src="data:image/jpeg;base64,<?=base64_encode( $gambar );?>" height="100px" width="120px" />
                                 <div class="p-title">
                                     <h5><?=$namaproduk;?></h5>
