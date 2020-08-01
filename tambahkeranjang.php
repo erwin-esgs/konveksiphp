@@ -1,9 +1,9 @@
 <div id="popup" style="height:100%; width:100%; position:fixed; top:0; left:0; background-color:rgba(80, 80, 80, 0.5); z-index: 2; display:none;"> 
-<div class="container" style="padding:5%; background-color:white; width:68%; height:100%;">
+<div class="container" style="padding:5%; background-color:white; width:68%; height:100%; border-radius:30px;">
 	<center><h3>Tambah ke keranjang</h3></center>
   <div class="form-group">
     <label for="idproduk">Kode Produk</label>
-    <input type="text" name="idproduk" class="form-control" id="idproduk" readonly >
+    <input type="text" name="idproduk" class="form-control-plaintext" id="idproduk" readonly >
   </div>
   <div class="form-group">
     <label for="jumlah">Jumlah</label>
@@ -13,8 +13,8 @@
     <label for="exampleInputText2">Keterangan</label>
 	<textarea class="form-control" name="keterangan" id="keterangan" style="resize: none;" ></textarea>
   </div>
-	<button  type="button" class="btn btn-primary" onclick="popup(1)">Back</button>
-	<button type="button" class="btn btn-primary" onclick="tambahkeranjang()">+ Ke Keranjang</button>
+	<button  type="button" class="primary-btn pc-btn" onclick="popup(1)">Back</button>
+	<button type="button" class="primary-btn pc-btn" onclick="tambahkeranjang()">+ Ke Keranjang</button>
 	</div>
 </div>
 <script language="javascript">

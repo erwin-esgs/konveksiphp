@@ -1,49 +1,19 @@
 <html>
-
-	<div class="header-info">
-	<div class="row">
-	
-		<div class="col-lg-3">
-			<div class="single-features-ads first">
-			<a href="tambahproduk.html"><h4>Tambah Produk</h4></a>
-			</div>
-		</div>
-	
-		<div class="col-lg-3">
-			<div class="single-features-ads first">
-			<a href="tampiladmin.php"><h4>Daftar Produk</h4></a>
-			</div>
-		</div>
-		
-		<div class="col-lg-3">
-			<div class="single-features-ads first">
-			<a href="tabeltransaksi.php"><h4>Report transaksi</h4></a>
-			</div>
-		</div>
-		
-		<div class="col-lg-2">
-			<div class="single-features-ads first">
-				
-					<form method="GET" action="index.php"> 
-						<input class="textinput1" name="keyword" placeholder="SEARCH BY ID" type="number"><input class="button1" type="submit" value="Search">
-					</form>
-				
-			</div>
-		</div>
-	</div>
-	</div>
-	
-<div class="container" style="background-color:white; padding:2%; "  >
 <?php 
 require('koneksi.php');
 	if($statusid !=0){
 		echo "<script language='javascript'>alert('Kembali ke home'); window.location.href = 'index.php';</script>";
 	}
-	?>
+	echo '<div class="btn-group mr-2" role="group" > <a class="btn btn-secondary" href="tambahproduk.html">Tambah Produk</a> </div>'; 
+	echo '<div class="btn-group mr-2" role="group" > <a class="btn btn-secondary" href="tampiladmin.php">Daftar Produk</a> </div>';
+	echo '<div class="btn-group mr-2" role="group" > <a class="btn btn-secondary" href="tabeltransaksi.php">Report transaksi</a> </div>';
+	echo '<div class="btn-group mr-2" role="group" >';
+	echo '<form method="GET" action="index.php">  ';
+	echo '<input class="textinput1" name="keyword" placeholder="SEARCH BY ID" type="number"> <input class="button1" type="submit" value="Search"><br>';
+	echo '</form></div>';
+	echo'<br><center><h6>Daftar Transaksi</h6></center><br>';
 
-	<br><center><h6>Daftar Transaksi</h6></center><br>
 
-	<?php
 	$username = $_SESSION["username"];
 	$con = mysqli_connect($host,$dbid,$dbpass,$dbname);
 	if (isset($_GET['keyword']) && $_GET['keyword']!='') { // serch 
@@ -62,12 +32,10 @@ require('koneksi.php');
 			$idtransaksi = $row["idtransaksi"];
 			$totalharga = $row["totalharga"];
 			include('switchstatus.php');
-			?>
-			<a href = "detiltransaksi.php?idtransaksi=<?=$idtransaksi;?>" >
-			<li class="list-group-item d-flex justify-content-between align-items-center">
-				<div class="input-group"><input type="text" class="form-control-plaintext" value="<?=$idtransaksi;?>" readonly>
-						<input type="text" class="form-control-plaintext" value="Rp<?=$totalharga;?>" readonly>
-			<?php
+				echo'<a href = "detiltransaksi.php?idtransaksi='.$idtransaksi.'" ><li class="list-group-item d-flex justify-content-between align-items-center">';
+					
+				echo' <div class="input-group"><input type="text" class="input-group-text justify-content-end" value="'.$idtransaksi.'" readonly>
+						<input type="text" class="input-group-text" value="Rp'.$totalharga.'" readonly></div>';
 				if($row["status"] == 2){
 					echo'
 							<div class="btn-group mr-2" role="group" style=" z-index: 1;">
@@ -89,17 +57,11 @@ require('koneksi.php');
 							</div>
 					';
 				}
-				
-				?>
-				<span class="badge badge-pill badge-info"><?=$status;?></span>
-				</div>
-			</li>
-			</a>
-				<?php
+				echo'<span class="badge badge-primary badge-pill">'.$status.'</span>
+					</li></a>';
 				$idtransaksiprev = $idtransaksi;
 		}
 		
 	}
 ?>
-</div>
 </html>

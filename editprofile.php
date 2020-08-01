@@ -1,7 +1,7 @@
 <!doctype html>
 <?php session_start(); 
 require('koneksi.php');
-$username = $_GET["username"];
+$username = $_SESSION["username"];
 	$con = mysqli_connect($host,$dbid,$dbpass,$dbname);
 	//cek username
 	$sql = "SELECT * FROM user WHERE  username = '".$username."' ";

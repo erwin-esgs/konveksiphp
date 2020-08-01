@@ -10,10 +10,12 @@
   
     </head>
 <body onload="">
+
+
 <form action="keranjangbayar.php" method="post" enctype="multipart/form-data" onsubmit="return validasi()" >
 	<div class="container" style="padding:5%;" id="container">
-	   <a href="index.php"><button  type="button" class="btn btn-primary">Back</button></a>
-	   <a href="keranjang.php"><button  type="button" class="btn btn-primary" onclick="delCookie()">Hapus Semua Barang</button></a>
+	   <a href="index.php"><button  type="button" class="btn btn-secondary">Back</button></a>
+	   <a href="keranjang.php"><button  type="button" class="btn btn-secondary" onclick="delCookie()">Hapus Semua Barang</button></a>
 	<center><h5>Daftar Barang</h5></center>
 	
  <?php
@@ -52,7 +54,7 @@ if(isset($_COOKIE[$cookie_name]) && $_COOKIE[$cookie_name][0] != null ) {
 						Kode: <input type="text" class="form-control" 			name="idproduk[]" value="'.$json_data[$i][0].'" readonly >
 						Pilih gambar jika ada contoh model: (max 1mb) <input 	name="image[]" type="file" class="form-control image" />
 					</div>
-					<a href="keranjang.php"><button  type="button" class="btn btn-primary" onclick="delItem('.$json_data[$i][0].')"> X </button></a>
+					<a href="keranjang.php"><button  type="button" class="btn btn-danger" onclick="delItem('.$json_data[$i][0].')"> X </button></a>
 				</div>
 				<div class="form-row card-body">
 					<div class="col">
@@ -70,7 +72,7 @@ if(isset($_COOKIE[$cookie_name]) && $_COOKIE[$cookie_name][0] != null ) {
 		}
 		$con->close();
 		echo ' Total Harga :<input type="text" class="form-control" id="totalharga"	name="totalharga" readonly value="'.$totalharga.'" >';
-		echo'<button type="submit" id="submit" class="btn btn-primary">Submit</button>';
+		echo'<button type="submit" id="submit" class="btn btn-secondary">Submit</button>';
 	}else{
 		echo "Keranjang Masih kosong";
 	}

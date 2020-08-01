@@ -7,7 +7,7 @@ $idproduk = strval(date('ymdHis ', time()));
 
 //$imgsize = getimagesize($_FILES['image']['tmp_name']);
 $maxsize= 1025152;
-    if( ($_FILES['image']['tmp_name'] != null) && ($_FILES['image']['size'] <= $maxsize) ) {
+    if( ($_FILES['image']['tmp_name'] != null) && ($_FILES['image']['size'] <= $maxsize) && ($_FILES['image']['size'] > 0) ) {
 	$imgdata = addslashes (file_get_contents($_FILES['image']['tmp_name']));
 
 		$con =  mysqli_connect($host,$dbid,$dbpass,$dbname);
